@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://componentes/barra_superior.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://componentes/botao_icone.tscn" id="2_botao_icone"]
+[ext_resource type="Texture2D" path="res://recursos/icones/voltar.svg" id="3_voltar"]
+
+[node name="BarraSuperior" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 160)
+theme_type_variation = &"BarraSuperior"
+script = ExtResource("1_script")
+
+[node name="Linha" type="HBoxContainer" parent="."]
+theme_override_constants/separation = 16
+
+[node name="BotaoVoltar" parent="Linha" instance=ExtResource("2_botao_icone")]
+unique_name_in_owner = true
+size_flags_vertical = 4
+icon = ExtResource("3_voltar")
+
+[node name="TituloTela" type="Label" parent="Linha"]
+unique_name_in_owner = true
+theme_type_variation = &"Subtitulo"
+size_flags_horizontal = 3
+vertical_alignment = 1
+
+[node name="Direita" type="HBoxContainer" parent="Linha"]
+unique_name_in_owner = true
+theme_override_constants/separation = 16

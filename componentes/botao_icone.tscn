@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://componentes/toque_escala.gd" id="1_script"]
+
+[node name="BotaoIcone" type="Button"]
+custom_minimum_size = Vector2(120, 120)
+theme_type_variation = &"BotaoIcone"
+icon_alignment = 1
+script = ExtResource("1_script")

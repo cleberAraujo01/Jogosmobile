@@ -1,0 +1,111 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://componentes/card_fase.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://recursos/icones/cadeado.svg" id="2_cadeado"]
+[ext_resource type="Texture2D" path="res://recursos/icones/check.svg" id="3_check"]
+
+[node name="CardFase" type="Button"]
+custom_minimum_size = Vector2(312, 312)
+clip_children = 1
+theme_type_variation = &"Cartao"
+script = ExtResource("1_script")
+
+[node name="Miniatura" type="TextureRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Scrim" type="TextureRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -140.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="ChipGrade" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_type_variation = &"Legenda"
+horizontal_alignment = 1
+text = "3x3"
+
+[node name="IconeCheck" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 64.0
+grow_horizontal = 0
+mouse_filter = 2
+texture = ExtResource("3_check")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Bloqueio" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Sombra" type="ColorRect" parent="Bloqueio"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Centro" type="CenterContainer" parent="Bloqueio"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Selo" type="PanelContainer" parent="Bloqueio/Centro"]
+theme_type_variation = &"Toast"
+mouse_filter = 2
+
+[node name="LinhaSelo" type="HBoxContainer" parent="Bloqueio/Centro/Selo"]
+theme_override_constants/separation = 16
+
+[node name="IconeCadeado" type="TextureRect" parent="Bloqueio/Centro/Selo/LinhaSelo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+mouse_filter = 2
+texture = ExtResource("2_cadeado")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RotuloBloqueada" type="Label" parent="Bloqueio/Centro/Selo/LinhaSelo"]
+theme_type_variation = &"Legenda"
+vertical_alignment = 1
+text = "Bloqueada"

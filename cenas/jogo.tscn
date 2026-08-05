@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://cenas/jogo.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://componentes/barra_superior.tscn" id="2_barra"]
+[ext_resource type="PackedScene" path="res://componentes/botao_primario.tscn" id="3_botao"]
+[ext_resource type="Script" path="res://componentes/ornamento.gd" id="4_ornamento"]
+
+[node name="Jogo" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Coluna" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Barra" parent="Coluna" instance=ExtResource("2_barra")]
+unique_name_in_owner = true
+titulo = "Quebra-cabeça"
+mostrar_voltar = true
+
+[node name="AreaModo" type="Control" parent="Coluna"]
+unique_name_in_owner = true
+size_flags_vertical = 3
+
+[node name="Conclusao" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SombraConclusao" type="ColorRect" parent="Conclusao"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Centro" type="CenterContainer" parent="Conclusao"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Painel" type="PanelContainer" parent="Conclusao/Centro"]
+custom_minimum_size = Vector2(952, 0)
+theme_type_variation = &"Modal"
+
+[node name="ColunaConclusao" type="VBoxContainer" parent="Conclusao/Centro/Painel"]
+theme_override_constants/separation = 24
+
+[node name="TituloConclusao" type="Label" parent="Conclusao/Centro/Painel/ColunaConclusao"]
+theme_type_variation = &"Titulo"
+horizontal_alignment = 1
+text = "Parabéns!"
+
+[node name="Ornamento" type="Control" parent="Conclusao/Centro/Painel/ColunaConclusao"]
+custom_minimum_size = Vector2(0, 24)
+script = ExtResource("4_ornamento")
+
+[node name="ImagemCompleta" type="TextureRect" parent="Conclusao/Centro/Painel/ColunaConclusao"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 500)
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VersiculoLabel" type="Label" parent="Conclusao/Centro/Painel/ColunaConclusao"]
+unique_name_in_owner = true
+theme_type_variation = &"VersiculoLongo"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ReferenciaLabel" type="Label" parent="Conclusao/Centro/Painel/ColunaConclusao"]
+unique_name_in_owner = true
+theme_type_variation = &"Referencia"
+horizontal_alignment = 1
+
+[node name="BotaoNovamente" parent="Conclusao/Centro/Painel/ColunaConclusao" instance=ExtResource("3_botao")]
+unique_name_in_owner = true
+text = "Jogar novamente"
+
+[node name="BotaoVoltarFases" type="Button" parent="Conclusao/Centro/Painel/ColunaConclusao"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 144)
+theme_type_variation = &"BotaoSecundario"
+text = "Escolher outra fase"

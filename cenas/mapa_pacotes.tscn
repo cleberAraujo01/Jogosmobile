@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://cenas/mapa_pacotes.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://componentes/barra_superior.tscn" id="2_barra"]
+[ext_resource type="PackedScene" path="res://componentes/popup_modal.tscn" id="3_modal"]
+[ext_resource type="PackedScene" path="res://componentes/toast.tscn" id="4_toast"]
+
+[node name="MapaPacotes" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Coluna" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Barra" parent="Coluna" instance=ExtResource("2_barra")]
+unique_name_in_owner = true
+titulo = "Pacotes"
+mostrar_voltar = true
+
+[node name="Rolagem" type="ScrollContainer" parent="Coluna"]
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Margem" type="MarginContainer" parent="Coluna/Rolagem"]
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Lista" type="VBoxContainer" parent="Coluna/Rolagem/Margem"]
+unique_name_in_owner = true
+theme_override_constants/separation = 24
+
+[node name="PopupModal" parent="." instance=ExtResource("3_modal")]
+unique_name_in_owner = true
+
+[node name="Toast" parent="." instance=ExtResource("4_toast")]
+unique_name_in_owner = true

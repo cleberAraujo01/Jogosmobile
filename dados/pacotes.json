@@ -1,0 +1,107 @@
+{
+	"versao": 1,
+	"grades": [3, 4, 6],
+	"pacotes": [
+		{
+			"id": "comeco_de_tudo",
+			"nome": "O Começo de Tudo",
+			"gratuito": true,
+			"preco": "",
+			"ilustracoes": [
+				{
+					"id": "criacao_luz",
+					"nome": "A Criação da Luz",
+					"versiculo": "E disse Deus: Haja luz. E houve luz.",
+					"referencia": "Gênesis 1:3",
+					"imagem": "res://recursos/imagens/imagem01.png"
+				},
+				{
+					"id": "jardim_eden",
+					"nome": "O Jardim do Éden",
+					"versiculo": "E plantou o Senhor Deus um jardim no Éden, e pôs ali o homem que tinha formado.",
+					"referencia": "Gênesis 2:8",
+					"imagem": "res://recursos/imagens/imagem02.png"
+				},
+				{
+					"id": "arca_arco_iris",
+					"nome": "A Arca e o Arco-Íris",
+					"versiculo": "O meu arco tenho posto nas nuvens; este será por sinal da aliança entre mim e a terra.",
+					"referencia": "Gênesis 9:13",
+					"imagem": "res://recursos/imagens/imagem03.png"
+				}
+			]
+		},
+		{
+			"id": "promessas_e_patriarcas",
+			"nome": "Promessas e Patriarcas",
+			"gratuito": true,
+			"preco": "",
+			"ilustracoes": [
+				{
+					"id": "abraao_estrelas",
+					"nome": "Abraão e as Estrelas",
+					"versiculo": "Olha agora para os céus e conta as estrelas, se as podes contar. Assim será a tua descendência.",
+					"referencia": "Gênesis 15:5",
+					"imagem": "res://recursos/imagens/imagem04.png"
+				},
+				{
+					"id": "tunica_jose",
+					"nome": "A Túnica de José",
+					"versiculo": "E Israel amava a José mais do que a todos os seus filhos, e fez-lhe uma túnica de várias cores.",
+					"referencia": "Gênesis 37:3",
+					"imagem": "res://recursos/imagens/imagem05.png"
+				},
+				{
+					"id": "sarca_ardente",
+					"nome": "A Sarça Ardente",
+					"versiculo": "A sarça ardia no fogo, e a sarça não se consumia.",
+					"referencia": "Êxodo 3:2",
+					"imagem": "res://recursos/imagens/imagem06.png"
+				}
+			]
+		},
+		{
+			"id": "jornada_de_fe",
+			"nome": "Jornada de Fé",
+			"gratuito": false,
+			"preco": "R$ 9,90",
+			"ilustracoes": [
+				{
+					"id": "mar_vermelho",
+					"nome": "A Travessia do Mar Vermelho",
+					"versiculo": "E Moisés estendeu a sua mão sobre o mar, e o Senhor fez retirar o mar, e as águas foram partidas.",
+					"referencia": "Êxodo 14:21",
+					"imagem": "res://recursos/imagens/imagem07.png"
+				},
+				{
+					"id": "moises_sinai",
+					"nome": "Moisés no Monte Sinai",
+					"versiculo": "Deu a Moisés as duas tábuas do testemunho, tábuas de pedra, escritas pelo dedo de Deus.",
+					"referencia": "Êxodo 31:18",
+					"imagem": "res://recursos/imagens/imagem08.png"
+				},
+				{
+					"id": "muralhas_jerico",
+					"nome": "As Muralhas de Jericó",
+					"versiculo": "Gritou o povo com grande grito, e o muro caiu abaixo.",
+					"referencia": "Josué 6:20",
+					"imagem": "res://recursos/imagens/imagem09.png"
+				},
+				{
+					"id": "davi_pastor",
+					"nome": "Davi, o Jovem Pastor",
+					"versiculo": "Tu vens contra mim com espada e com lança, porém eu vou contra ti em nome do Senhor dos Exércitos.",
+					"referencia": "1 Samuel 17:45",
+					"imagem": "res://recursos/imagens/imagem10.png"
+				},
+				{
+					"id": "senhor_meu_pastor",
+					"nome": "O Senhor é o Meu Pastor",
+					"versiculo": "O Senhor é o meu pastor; nada me faltará.",
+					"referencia": "Salmos 23:1",
+					"imagem": "res://recursos/imagens/imagem11.png"
+				}
+			]
+		}
+	]
+}

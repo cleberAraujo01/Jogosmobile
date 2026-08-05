@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://componentes/bandeja.gd" id="1_script"]
+
+[node name="Bandeja" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 320)
+theme_type_variation = &"Bandeja"
+script = ExtResource("1_script")
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+follow_focus = false
+scroll_deadzone = 40
+horizontal_scroll_mode = 1
+vertical_scroll_mode = 0
+
+[node name="Linha" type="HBoxContainer" parent="Scroll"]
+unique_name_in_owner = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 24

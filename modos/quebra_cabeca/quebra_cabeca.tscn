@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://modos/quebra_cabeca/quebra_cabeca.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://componentes/tabuleiro.tscn" id="2_tabuleiro"]
+[ext_resource type="PackedScene" path="res://componentes/bandeja.tscn" id="3_bandeja"]
+[ext_resource type="PackedScene" path="res://componentes/botao_icone.tscn" id="4_botao_icone"]
+[ext_resource type="Texture2D" path="res://recursos/icones/dica.svg" id="5_dica"]
+
+[node name="QuebraCabeca" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_script")
+
+[node name="Margem" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 24
+
+[node name="Coluna" type="VBoxContainer" parent="Margem"]
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="Tabuleiro" parent="Margem/Coluna" instance=ExtResource("2_tabuleiro")]
+unique_name_in_owner = true
+size_flags_vertical = 3
+
+[node name="LinhaDicas" type="HBoxContainer" parent="Margem/Coluna"]
+theme_override_constants/separation = 16
+
+[node name="BotaoDica" parent="Margem/Coluna/LinhaDicas" instance=ExtResource("4_botao_icone")]
+unique_name_in_owner = true
+icon = ExtResource("5_dica")
+
+[node name="RotuloDica" type="Label" parent="Margem/Coluna/LinhaDicas"]
+theme_type_variation = &"TextoSecundario"
+vertical_alignment = 1
+text = "Encaixar uma peça"
+
+[node name="Bandeja" parent="Margem/Coluna" instance=ExtResource("3_bandeja")]
+unique_name_in_owner = true
+
+[node name="CamadaArrasto" type="Node2D" parent="."]
+unique_name_in_owner = true

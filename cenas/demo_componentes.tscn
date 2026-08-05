@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://cenas/demo_componentes.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://componentes/barra_superior.tscn" id="2_barra"]
+[ext_resource type="PackedScene" path="res://cenas/demo_amostra.tscn" id="3_amostra"]
+[ext_resource type="PackedScene" path="res://componentes/popup_modal.tscn" id="4_modal"]
+[ext_resource type="PackedScene" path="res://componentes/toast.tscn" id="5_toast"]
+[ext_resource type="Script" path="res://componentes/toque_escala.gd" id="6_toque"]
+
+[node name="DemoComponentes" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Coluna" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Barra" parent="Coluna" instance=ExtResource("2_barra")]
+titulo = "Componentes"
+mostrar_voltar = false
+
+[node name="MargemBotao" type="MarginContainer" parent="Coluna"]
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+
+[node name="BotaoAlternar" type="Button" parent="Coluna/MargemBotao"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(480, 144)
+theme_type_variation = &"BotaoSecundario"
+text = "Alternar tema global (a barra acima segue o tema ativo)"
+script = ExtResource("6_toque")
+
+[node name="Colunas" type="HBoxContainer" parent="Coluna"]
+size_flags_vertical = 3
+
+[node name="AmostraClara" parent="Coluna/Colunas" instance=ExtResource("3_amostra")]
+unique_name_in_owner = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tema_forcado = "claro"
+
+[node name="AmostraEscura" parent="Coluna/Colunas" instance=ExtResource("3_amostra")]
+unique_name_in_owner = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tema_forcado = "escuro"
+
+[node name="PopupModal" parent="." instance=ExtResource("4_modal")]
+unique_name_in_owner = true
+
+[node name="Toast" parent="." instance=ExtResource("5_toast")]
+unique_name_in_owner = true

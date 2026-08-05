@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://componentes/popup_modal.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://componentes/botao_icone.tscn" id="2_botao_icone"]
+[ext_resource type="PackedScene" path="res://componentes/botao_primario.tscn" id="3_botao_primario"]
+[ext_resource type="Texture2D" path="res://recursos/icones/fechar.svg" id="4_fechar"]
+[ext_resource type="Script" path="res://componentes/toque_escala.gd" id="5_toque"]
+
+[node name="PopupModal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Sombra" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Centro" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Painel" type="PanelContainer" parent="Centro"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(952, 0)
+theme_type_variation = &"Modal"
+
+[node name="Conteudo" type="VBoxContainer" parent="Centro/Painel"]
+theme_override_constants/separation = 32
+
+[node name="Cabecalho" type="HBoxContainer" parent="Centro/Painel/Conteudo"]
+theme_override_constants/separation = 16
+
+[node name="TituloModal" type="Label" parent="Centro/Painel/Conteudo/Cabecalho"]
+unique_name_in_owner = true
+theme_type_variation = &"Titulo"
+size_flags_horizontal = 3
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BotaoFechar" parent="Centro/Painel/Conteudo/Cabecalho" instance=ExtResource("2_botao_icone")]
+unique_name_in_owner = true
+size_flags_vertical = 0
+icon = ExtResource("4_fechar")
+
+[node name="CorpoModal" type="Label" parent="Centro/Painel/Conteudo"]
+unique_name_in_owner = true
+autowrap_mode = 3
+
+[node name="Botoes" type="VBoxContainer" parent="Centro/Painel/Conteudo"]
+theme_override_constants/separation = 24
+
+[node name="BotaoConfirmar" parent="Centro/Painel/Conteudo/Botoes" instance=ExtResource("3_botao_primario")]
+unique_name_in_owner = true
+text = "OK"
+
+[node name="BotaoCancelar" type="Button" parent="Centro/Painel/Conteudo/Botoes"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(480, 144)
+theme_type_variation = &"BotaoSecundario"
+script = ExtResource("5_toque")

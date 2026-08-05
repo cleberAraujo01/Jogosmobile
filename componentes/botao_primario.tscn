@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://componentes/toque_escala.gd" id="1_script"]
+
+[node name="BotaoPrimario" type="Button"]
+custom_minimum_size = Vector2(480, 144)
+theme_type_variation = &"BotaoPrimario"
+text = "Botão"
+script = ExtResource("1_script")

@@ -1,0 +1,6 @@
+# Cache do editor Godot — gerado automaticamente, nunca versionar.
+.godot/
+
+# Exports Android (quando existirem).
+*.apk
+*.aab

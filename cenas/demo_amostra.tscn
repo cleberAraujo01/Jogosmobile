@@ -1,0 +1,149 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://cenas/demo_amostra.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://componentes/botao_primario.tscn" id="2_botao_primario"]
+[ext_resource type="PackedScene" path="res://componentes/botao_icone.tscn" id="3_botao_icone"]
+[ext_resource type="PackedScene" path="res://componentes/indicador_moedas.tscn" id="4_moedas"]
+[ext_resource type="PackedScene" path="res://componentes/card_pacote.tscn" id="5_card_pacote"]
+[ext_resource type="PackedScene" path="res://componentes/card_fase.tscn" id="6_card_fase"]
+[ext_resource type="Script" path="res://componentes/toque_escala.gd" id="7_toque"]
+[ext_resource type="Texture2D" path="res://recursos/icones/voltar.svg" id="8_voltar"]
+[ext_resource type="Texture2D" path="res://recursos/icones/dica.svg" id="9_dica"]
+[ext_resource type="Texture2D" path="res://recursos/icones/som_ligado.svg" id="10_som"]
+[ext_resource type="Texture2D" path="res://recursos/icones/configuracoes.svg" id="11_config"]
+
+[node name="DemoAmostra" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="Margem" type="MarginContainer" parent="Scroll"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 48
+
+[node name="Coluna" type="VBoxContainer" parent="Scroll/Margem"]
+theme_override_constants/separation = 32
+
+[node name="RotuloTema" type="Label" parent="Scroll/Margem/Coluna"]
+unique_name_in_owner = true
+theme_type_variation = &"Titulo"
+text = "Tema"
+
+[node name="AmostraDisplay" type="Label" parent="Scroll/Margem/Coluna"]
+theme_type_variation = &"Display"
+text = "Display Aa"
+
+[node name="AmostraTitulo" type="Label" parent="Scroll/Margem/Coluna"]
+theme_type_variation = &"Titulo"
+text = "Título Aa"
+
+[node name="AmostraSubtitulo" type="Label" parent="Scroll/Margem/Coluna"]
+theme_type_variation = &"Subtitulo"
+text = "Subtítulo Aa"
+
+[node name="AmostraCorpo" type="Label" parent="Scroll/Margem/Coluna"]
+text = "Corpo: um momento de calma e devoção ao fim do dia."
+autowrap_mode = 3
+
+[node name="AmostraLegenda" type="Label" parent="Scroll/Margem/Coluna"]
+theme_type_variation = &"Legenda"
+text = "Legenda 32px — piso da escala"
+
+[node name="AmostraSecundario" type="Label" parent="Scroll/Margem/Coluna"]
+theme_type_variation = &"TextoSecundario"
+text = "Texto secundário"
+
+[node name="AmostraVersiculo" type="Label" parent="Scroll/Margem/Coluna"]
+theme_type_variation = &"VersiculoLongo"
+text = "\"O Senhor é o meu pastor; nada me faltará.\""
+autowrap_mode = 3
+
+[node name="AmostraReferencia" type="Label" parent="Scroll/Margem/Coluna"]
+theme_type_variation = &"Referencia"
+text = "Salmos 23:1"
+
+[node name="BotaoPrimario" parent="Scroll/Margem/Coluna" instance=ExtResource("2_botao_primario")]
+text = "Botão primário"
+
+[node name="BotaoPrimarioDesab" parent="Scroll/Margem/Coluna" instance=ExtResource("2_botao_primario")]
+disabled = true
+text = "Desabilitado"
+
+[node name="BotaoSecundario" type="Button" parent="Scroll/Margem/Coluna"]
+custom_minimum_size = Vector2(480, 144)
+theme_type_variation = &"BotaoSecundario"
+text = "Botão secundário"
+script = ExtResource("7_toque")
+
+[node name="LinhaIcones" type="HBoxContainer" parent="Scroll/Margem/Coluna"]
+theme_override_constants/separation = 24
+
+[node name="Icone1" parent="Scroll/Margem/Coluna/LinhaIcones" instance=ExtResource("3_botao_icone")]
+icon = ExtResource("8_voltar")
+
+[node name="Icone2" parent="Scroll/Margem/Coluna/LinhaIcones" instance=ExtResource("3_botao_icone")]
+icon = ExtResource("9_dica")
+
+[node name="Icone3" parent="Scroll/Margem/Coluna/LinhaIcones" instance=ExtResource("3_botao_icone")]
+icon = ExtResource("10_som")
+
+[node name="Icone4" parent="Scroll/Margem/Coluna/LinhaIcones" instance=ExtResource("3_botao_icone")]
+disabled = true
+icon = ExtResource("11_config")
+
+[node name="Moedas" parent="Scroll/Margem/Coluna" instance=ExtResource("4_moedas")]
+unique_name_in_owner = true
+size_flags_horizontal = 0
+quantidade = 250
+
+[node name="Progresso" type="ProgressBar" parent="Scroll/Margem/Coluna"]
+custom_minimum_size = Vector2(0, 20)
+value = 60.0
+show_percentage = false
+
+[node name="CardPacote" parent="Scroll/Margem/Coluna" instance=ExtResource("5_card_pacote")]
+unique_name_in_owner = true
+
+[node name="CardPacoteBloqueado" parent="Scroll/Margem/Coluna" instance=ExtResource("5_card_pacote")]
+unique_name_in_owner = true
+
+[node name="CardFase1" parent="Scroll/Margem/Coluna" instance=ExtResource("6_card_fase")]
+unique_name_in_owner = true
+size_flags_horizontal = 0
+
+[node name="CardFase2" parent="Scroll/Margem/Coluna" instance=ExtResource("6_card_fase")]
+unique_name_in_owner = true
+size_flags_horizontal = 0
+
+[node name="CardFase3" parent="Scroll/Margem/Coluna" instance=ExtResource("6_card_fase")]
+unique_name_in_owner = true
+size_flags_horizontal = 0
+
+[node name="BotaoModal" type="Button" parent="Scroll/Margem/Coluna"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(480, 144)
+theme_type_variation = &"BotaoSecundario"
+text = "Abrir modal"
+script = ExtResource("7_toque")
+
+[node name="BotaoToast" type="Button" parent="Scroll/Margem/Coluna"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(480, 144)
+theme_type_variation = &"BotaoSecundario"
+text = "Mostrar toast"
+script = ExtResource("7_toque")

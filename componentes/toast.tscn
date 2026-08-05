@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://componentes/toast.gd" id="1_script"]
+
+[node name="Toast" type="PanelContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_type_variation = &"Toast"
+script = ExtResource("1_script")
+
+[node name="Linha" type="HBoxContainer" parent="."]
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="IconeToast" type="TextureRect" parent="Linha"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(40, 40)
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RotuloToast" type="Label" parent="Linha"]
+unique_name_in_owner = true
+vertical_alignment = 1
